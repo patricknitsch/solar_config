@@ -470,7 +470,10 @@ switch ($Regler) {
     }
     if ( file_exists ("/var/www/html/user_device.php")) {
       $funktionen->log_schreiben("Datei 'user_device.php' gefunden.","   ",8);
-      require($Pfad."/user_device.php"); // Vom Benutzer selber geschriebene Datei.
+      while($key) {
+        require ($Pfad."/user_device.php"); // Vom Benutzer selber geschriebene Datei.
+        sleep(5); // repeat all five seconds
+      }
     }
     else {
       $funktionen->log_schreiben("Angegebener Regler ungültig. ".$Regler,"   ",2);
